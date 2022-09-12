@@ -1,0 +1,10 @@
+class Privacy < ActiveHash::Base
+  self.data = [
+    { id: 1, name: '---' },
+    { id: 2, name: '公開' },
+    { id: 3, name: '非公開(自分のみ)' }
+  ]
+
+  include ActiveHash::Associations
+  has_many :items
+end
