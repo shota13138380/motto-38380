@@ -1,9 +1,10 @@
 <div class="card">
   <% if item.image.attached? %>
-    <%= link_to image_tag(item.image, class: :card__img ), root_path %>
+    <% @image = item.image%>
   <% else %>
-    <%= link_to image_tag('noimage.jpg', class: :card__img ), root_path %>
+    <% @image = 'noimage.jpg' %>
   <% end %>
+  <%= link_to image_tag(@image, class: :card__img ), item_path(item.id) %>
   <div class="card__body">
     <%= link_to item.name, root_path, class: :card__title%>
     <%= link_to "by #{item.user.name}", root_path, class: :card__user %>

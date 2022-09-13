@@ -1,0 +1,32 @@
+<main class="main">
+  <div class="inner">
+    <div class="item__wrapper">
+      <p class="item__hedding">
+        <%= @item.name %>
+      </p>
+      <%= link_to "by #{@item.user.name}", root_path, class: :item__user %>
+      <% if user_signed_in? && current_user.id == @item.user_id %>
+        <div class="item__manage">
+          <%= link_to "編集する", root_path, class: :item__btn %>
+          <%= link_to "削除する", root_path, class: :item__btn %>
+        </div>
+      <% end %>
+      <div class="item__image">
+        <% if @item.image.attached? %>
+          <% @image = @item.image%>
+        <% else %>
+          <% @image = 'noimage.jpg' %>
+        <% end %>
+        <%= image_tag @image %>
+      </div>
+      <div class="item__body">
+        <div class="item__detail">
+          <p class="detail__title">概要</p>
+          <p class="detail__message">
+            <%= @item.content %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
