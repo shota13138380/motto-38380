@@ -4,7 +4,7 @@
       <p class="item__hedding">
         <%= @item.name %>
       </p>
-      <%= link_to "by #{@item.user.name}", root_path, class: :item__user %>
+      <%= link_to "by #{@item.user.name}", user_path(@item.user.id), class: :item__user %>
       <% if user_signed_in? && current_user.id == @item.user_id %>
         <div class="item__manage">
           <%= link_to "編集する", edit_item_path(@item.id), class: :item__btn %>
