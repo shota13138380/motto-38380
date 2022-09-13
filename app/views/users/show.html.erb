@@ -4,6 +4,16 @@
       <h2 class="page-heading">
         <%= "#{@user.name}さんの情報" %>
       </h2>
+      <% if user_signed_in? %>
+        <div class="user__manage">
+          <% if current_user.id == @user.id %>
+            <%= link_to "編集する", root_path, class: :user__btn %>
+            <%= link_to "削除する", root_path, class: :user__btn %>
+          <% else %>
+            <%= link_to "フォロー", root_path, class: :user__btn %>
+          <% end %>
+        </div>
+      <% end %>
       <table class="table">
         <tbody>
           <tr>
