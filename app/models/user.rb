@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :items
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates :password, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, format: { with: VALID_PASSWORD_REGEX },on: :create
   validates :name,     presence: true
 end
