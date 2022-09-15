@@ -32,12 +32,16 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    item_attributes = @item.attributes
+    @item_form = ItemForm.new(item_attributes)
     redirect_to root_path unless current_user.id == @item.user_id
   end
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_params)
+    @item_form = ItemForm.new(item_form_params)
+    if @item_form.valid?
+      @item_form.update(item_form_params, @item)
       redirect_to item_path(@item.id)
     else
       render :edit
