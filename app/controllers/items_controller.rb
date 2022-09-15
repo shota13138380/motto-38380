@@ -10,12 +10,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @item_form = ItemForm.new
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
+    @item_form = ItemForm.new(item_form_params)
+    if @item_form.valid?
+      @item_form.save
       redirect_to root_path
     else
       render :new
@@ -51,8 +52,8 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
-    params.require(:item).permit(:name, :content, :privacy_id, :image).merge(user_id: current_user.id)
+  def item_form_params
+    params.require(:item_form).permit(:name, :content, :privacy_id, :image).merge(user_id: current_user.id)
   end
 
   def judge_privacy
