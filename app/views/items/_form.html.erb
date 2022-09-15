@@ -13,6 +13,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :tag_name, "タグ" %><br />
+    <%= f.text_area :tag_name, id:"item_tag" %>
+  </div>
+
+  <div class="field">
     <%= f.label :image, "アイテム画像" %><br />
     <%= f.file_field :image, id:"item_image" %>
   </div>

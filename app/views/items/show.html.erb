@@ -11,6 +11,9 @@
           <%= link_to "削除する", item_path(@item.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: :item__btn %>
         </div>
       <% end %>
+      <div class="item__manage">
+        <%= link_to @item.tags&.first&.tag_name , root_path, class: :item__btn %>
+      </div>
       <div class="item__image">
         <% if @item.image.attached? %>
           <% @image = @item.image%>

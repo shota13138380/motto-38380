@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
   private
 
   def item_form_params
-    params.require(:item_form).permit(:name, :content, :privacy_id, :image).merge(user_id: current_user.id)
+    params.require(:item_form).permit(:name, :content, :privacy_id, :tag_name, :image).merge(user_id: current_user.id)
   end
 
   def judge_privacy
