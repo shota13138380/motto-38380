@@ -34,6 +34,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     item_attributes = @item.attributes
     @item_form = ItemForm.new(item_attributes)
+    @item_form.tag_name = @item.tags&.first&.tag_name
     redirect_to root_path unless current_user.id == @item.user_id
   end
 
