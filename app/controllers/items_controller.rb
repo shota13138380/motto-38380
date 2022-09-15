@@ -10,12 +10,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @item_form = ItemForm.new
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
+    @item_form = ItemForm.new(item_form_params)
+    if @item_form.valid?
+      @item_form.save
       redirect_to root_path
     else
       render :new
@@ -31,12 +32,17 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    item_attributes = @item.attributes
+    @item_form = ItemForm.new(item_attributes)
+    @item_form.tag_name = @item.tags&.first&.tag_name
     redirect_to root_path unless current_user.id == @item.user_id
   end
 
   def update
     @item = Item.find(params[:id])
-    if @item.update(item_params)
+    @item_form = ItemForm.new(item_form_params)
+    if @item_form.valid?
+      @item_form.update(item_form_params, @item)
       redirect_to item_path(@item.id)
     else
       render :edit
@@ -51,8 +57,8 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
-    params.require(:item).permit(:name, :content, :privacy_id, :image).merge(user_id: current_user.id)
+  def item_form_params
+    params.require(:item_form).permit(:name, :content, :privacy_id, :tag_name, :image).merge(user_id: current_user.id)
   end
 
   def judge_privacy
