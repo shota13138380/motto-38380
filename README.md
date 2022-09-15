@@ -47,7 +47,7 @@
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| name       | string     | null: false                    |
+| tag_name   | string     | null: false                    |
 
 ### Association
 
@@ -59,9 +59,9 @@
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
 | item       | references | null: false, foreign_key: true |
-| user       | references | null: false, foreign_key: true |
+| tag        | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
 - belongs_to :item
+- belongs_to :tag
