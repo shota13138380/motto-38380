@@ -2,7 +2,11 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @items = Item.order('created_at DESC')
+    @items = if user_signed_in?
+               Item.where(user_id: current_user.id).or(Item.where(privacy_id: 2)).order('created_at DESC')
+             else
+               Item.where(privacy_id: 2).order('created_at DESC')
+             end
   end
 
   def new
@@ -20,6 +24,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    redirect_to root_path unless judge_privacy
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
   end
@@ -48,5 +53,15 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :content, :privacy_id, :image).merge(user_id: current_user.id)
+  end
+
+  def judge_privacy
+    if @item.privacy_id == 2
+      true
+    elsif user_signed_in? && current_user.id == @item.user_id
+      true
+    else
+      false
+    end
   end
 end
