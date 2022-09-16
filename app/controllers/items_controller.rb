@@ -40,7 +40,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     item_attributes = @item.attributes
     @item_form = ItemForm.new(item_attributes)
-    @item_form.tag_name = @item.tags&.first&.tag_name
+    tag_names = []
+    @item.tags.each do |tag|
+      tag_names << tag.tag_name
+    end
+    @item_form.tag_name = tag_names.join(',')
     redirect_to root_path unless current_user.id == @item.user_id
   end
 
