@@ -12,7 +12,9 @@
         </div>
       <% end %>
       <div class="item__manage">
-        <%= link_to @item.tags&.first&.tag_name , root_path, class: :item__btn %>
+        <% @tags.each do |tag| %>
+          <%= link_to tag.tag_name , root_path, class: :item__btn %>
+        <% end%>
       </div>
       <div class="item__image">
         <% if @item.image.attached? %>

@@ -29,6 +29,11 @@ class ItemsController < ApplicationController
     redirect_to root_path unless judge_privacy
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
+    @item_tags = @item.item_tags.includes(:item)
+    @tags = []
+    @item_tags.each do |item_tags|
+      @tags << Tag.find(item_tags.tag_id)
+    end
   end
 
   def edit
