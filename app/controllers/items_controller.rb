@@ -15,8 +15,9 @@ class ItemsController < ApplicationController
 
   def create
     @item_form = ItemForm.new(item_form_params)
+    tag_list = params[:item_form][:tag_name].split(',')
     if @item_form.valid?
-      @item_form.save
+      @item_form.save(tag_list)
       redirect_to root_path
     else
       render :new

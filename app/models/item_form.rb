@@ -12,11 +12,13 @@ class ItemForm
   validates :content,    presence: true
   validates :privacy_id, numericality: { other_than: 1, message: "can't be blank" }
 
-  def save
+  def save(tag_list)
     item = Item.create(name: name, content: content, privacy_id: privacy_id, image: image, user_id: user_id)
-    tag = Tag.where(tag_name: tag_name).first_or_initialize
-    tag.save
-    ItemTag.create(item_id: item.id, tag_id: tag.id)
+    tag_list.each do |tag_name|
+      tag = Tag.where(tag_name: tag_name).first_or_initialize
+      tag.save
+      ItemTag.create(item_id: item.id, tag_id: tag.id)
+    end
   end
 
   def update(params, item)
