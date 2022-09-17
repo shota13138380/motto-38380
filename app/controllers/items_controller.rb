@@ -51,8 +51,9 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item_form = ItemForm.new(item_form_params)
+    tag_list = params[:item_form][:tag_name].split(',')
     if @item_form.valid?
-      @item_form.update(item_form_params, @item)
+      @item_form.update(item_form_params, @item, tag_list)
       redirect_to item_path(@item.id)
     else
       render :edit

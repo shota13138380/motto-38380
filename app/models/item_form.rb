@@ -21,12 +21,14 @@ class ItemForm
     end
   end
 
-  def update(params, item)
+  def update(params, item, tag_list)
     item.item_tags.destroy_all
-    tag_name = params.delete(:tag_name)
-    tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
-    tag.save if tag_name.present?
+    params.delete(:tag_name)
     item.update(params)
-    ItemTag.create(item_id: item.id, tag_id: tag.id) if tag_name.present?
+    tag_list.each do |tag_name|
+      tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
+      tag.save if tag_name.present?
+      ItemTag.create(item_id: item.id, tag_id: tag.id) if tag_name.present?
+    end
   end
 end
