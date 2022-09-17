@@ -15,8 +15,9 @@ class ItemsController < ApplicationController
 
   def create
     @item_form = ItemForm.new(item_form_params)
+    tag_list = params[:item_form][:tag_name].split(',')
     if @item_form.valid?
-      @item_form.save
+      @item_form.save(tag_list)
       redirect_to root_path
     else
       render :new
@@ -28,21 +29,31 @@ class ItemsController < ApplicationController
     redirect_to root_path unless judge_privacy
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
+    @item_tags = @item.item_tags.includes(:item)
+    @tags = []
+    @item_tags.each do |item_tags|
+      @tags << Tag.find(item_tags.tag_id)
+    end
   end
 
   def edit
     @item = Item.find(params[:id])
     item_attributes = @item.attributes
     @item_form = ItemForm.new(item_attributes)
-    @item_form.tag_name = @item.tags&.first&.tag_name
+    tag_names = []
+    @item.tags.each do |tag|
+      tag_names << tag.tag_name
+    end
+    @item_form.tag_name = tag_names.join(',')
     redirect_to root_path unless current_user.id == @item.user_id
   end
 
   def update
     @item = Item.find(params[:id])
     @item_form = ItemForm.new(item_form_params)
+    tag_list = params[:item_form][:tag_name].split(',')
     if @item_form.valid?
-      @item_form.update(item_form_params, @item)
+      @item_form.update(item_form_params, @item, tag_list)
       redirect_to item_path(@item.id)
     else
       render :edit
@@ -56,9 +67,10 @@ class ItemsController < ApplicationController
   end
 
   def search
-    return nil if params[:keyword] == ""
-    tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"] )
-    render json:{ keyword: tag }
+    return nil if params[:keyword] == ''
+
+    tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"])
+    render json: { keyword: tag }
   end
 
   private
