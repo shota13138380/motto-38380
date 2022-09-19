@@ -28,6 +28,12 @@
       <div class="user__card">
         <%= render partial: "items/item", collection: @items %>
       </div>
+      <h2 class="page-heading">
+        <%= "いいね！した投稿" %>
+      </h2>
+      <div class="user__card">
+        <%= render partial: "items/item", collection: @favorite_list %>
+      </div>
     </div>
   </div>
 </div>

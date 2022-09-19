@@ -5,10 +5,19 @@
         <%= @item.name %>
       </p>
       <%= link_to "by #{@item.user.name}", user_path(@item.user.id), class: :item__user %>
-      <% if user_signed_in? && current_user.id == @item.user_id %>
+      <% if user_signed_in? %>
         <div class="item__manage">
-          <%= link_to "編集する", edit_item_path(@item.id), class: :item__btn %>
-          <%= link_to "削除する", item_path(@item.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: :item__btn %>
+          <% if current_user.id == @item.user_id %>
+            <%= link_to "編集する", edit_item_path(@item.id), class: :item__btn %>
+            <%= link_to "削除する", item_path(@item.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: :item__btn %>
+          <% else %>
+            <%if !Favorite.exists?(user: current_user, item_id: @item.id) %>
+              <%= link_to "いいね！", item_favorites_path(@item.id), method: :post, class: :fav__btn %>
+            <% else %>
+              <%= link_to "いいね！", item_favorite_path(@item), method: :delete, class: :unfav__btn %>
+            <% end %>
+            <%= @item.favorites.length %>
+          <% end %>
         </div>
       <% end %>
       <div class="item__manage">

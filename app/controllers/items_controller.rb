@@ -2,11 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @items = if user_signed_in?
-               Item.where(user_id: current_user.id).or(Item.where(privacy_id: 2)).order('created_at DESC')
-             else
-               Item.where(privacy_id: 2).order('created_at DESC')
-             end
+    @items = Item.all.order('created_at DESC')
   end
 
   def new
