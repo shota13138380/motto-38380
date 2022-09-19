@@ -3,9 +3,7 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    if @item.user_id != current_user.id
-      @favorite = Favorite.create(user_id: current_user.id, item_id: @item.id)
-    end
+    @favorite = Favorite.create(user_id: current_user.id, item_id: @item.id) if @item.user_id != current_user.id
     redirect_to item_path(@item.id)
   end
 
@@ -16,6 +14,7 @@ class FavoritesController < ApplicationController
   end
 
   private
+
   def set_item
     @item = Item.find(params[:item_id])
   end
