@@ -25,22 +25,15 @@ class ItemsController < ApplicationController
     redirect_to root_path unless judge_privacy
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
-    @item_tags = @item.item_tags.includes(:item)
-    @tags = []
-    @item_tags.each do |item_tags|
-      @tags << Tag.find(item_tags.tag_id)
-    end
+    @tags = @item.tags.pluck(:tag_name)              # pluck(カラム名)で指定したカラムの値を配列で取得
   end
 
   def edit
     @item = Item.find(params[:id])
     item_attributes = @item.attributes
     @item_form = ItemForm.new(item_attributes)
-    tag_names = []
-    @item.tags.each do |tag|
-      tag_names << tag.tag_name
-    end
-    @item_form.tag_name = tag_names.join(',')
+    tags = @item.tags.pluck(:tag_name)               # pluck(カラム名)で指定したカラムの値を配列で取得
+    @item_form.tag_name = tags.join(',')             # join('文字')で要素を指定した文字で繋ぐ
     redirect_to root_path unless current_user.id == @item.user_id
   end
 

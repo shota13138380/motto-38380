@@ -22,7 +22,7 @@
       <% end %>
       <div class="item__manage">
         <% @tags.each do |tag| %>
-          <%= link_to tag.tag_name , root_path, class: :item__btn %>
+          <%= link_to tag , root_path, class: :item__btn %>
         <% end%>
       </div>
       <div class="item__image">
