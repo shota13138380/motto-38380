@@ -3,7 +3,7 @@
     <% if item.image.attached? %>
       <% @image = item.image%>
     <% else %>
-      <% @image = 'noimage.jpg' %>
+      <% @image = 'noimage.png' %>
     <% end %>
     <%= link_to image_tag(@image, class: :card__img ), item_path(item.id) %>
     <div class="card__body">
