@@ -37,8 +37,9 @@ a {
 /* ヘッダー */
 
 .header {
+  height: 95px;
   background-color: #ffe8d0;
-  margin-bottom: 48px;
+  /* margin-bottom: 48px; */
   padding: 20px 0;
 }
 .inner {
@@ -52,7 +53,7 @@ a {
   align-items: center;
 }
 .header_logo {
-  width: 100px;
+  height: 50px;
 }
 .nav__btn{
   display: inline-block;
@@ -93,6 +94,12 @@ a {
 }
 .nav__logout:hover{
   opacity: 0.5;
+}
+
+.main{
+  height: calc(100vh - 95px - 50px);
+  padding-top: 40px;
+  overflow: scroll;
 }
 
 /* フォーム周り */
@@ -378,11 +385,12 @@ a {
 /* フッター */
 
 .footer {
+  height: 50px;
   background-color: #999;
   padding: 10px 0;
   display: flex;
   justify-content: center;
 }
 .footer_logo {
-  width: 50px;
+  width: 100px;
 }
