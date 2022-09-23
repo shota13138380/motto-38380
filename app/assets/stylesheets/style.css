@@ -382,6 +382,36 @@ a {
   background: #999;
 }
 
+/* タブ */
+
+.tab-group{
+  display: flex;
+  justify-content: center;
+}
+.tab{
+  flex-grow: 1;
+  padding:5px;
+  list-style:none;
+  border:solid 1px #CCC;
+  border-radius: 5px;
+  text-align:center;
+  cursor:pointer;
+}
+.panel-group{
+}
+
+.panel{
+  display:none;
+}
+.tab.is-active{
+  background:#F00;
+  color:#FFF;
+  transition: all 0.2s ease-out;
+}
+.panel.is-show{
+  display:block;
+}
+
 /* フッター */
 
 .footer {
