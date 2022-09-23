@@ -22,17 +22,32 @@
           </tr>
         </tbody>
       </table>
-      <h2 class="page-heading">
-        <%= "#{@user.name}さんの投稿" %>
-      </h2>
-      <div class="user__card">
-        <%= render partial: "items/item", collection: @items %>
-      </div>
-      <h2 class="page-heading">
-        <%= "いいね！した投稿" %>
-      </h2>
-      <div class="user__card">
-        <%= render partial: "items/item", collection: @favorite_list %>
+
+      <div class="tab-panel">
+        <%# タブ %>
+        <ul class="tab-group">
+          <li class="tab tab-A is-active">投稿</li>
+          <li class="tab tab-B">いいね！</li>
+        </ul>
+        <%# タブを切り替えて表示するコンテンツ %>
+        <div class="panel-group">
+          <div class="panel tab-A is-show">
+            <h2 class="page-heading">
+              <%= "#{@user.name}さんの投稿" %>
+            </h2>
+            <div class="user__card">
+              <%= render partial: "items/item", collection: @items %>
+            </div>
+          </div>
+          <div class="panel tab-B">
+            <h2 class="page-heading">
+              <%= "いいね！した投稿" %>
+            </h2>
+            <div class="user__card">
+              <%= render partial: "items/item", collection: @favorite_list %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
