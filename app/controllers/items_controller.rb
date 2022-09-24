@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     redirect_to root_path unless judge_privacy
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
-    @tags = @item.tags.pluck(:tag_name)              # pluck(カラム名)で指定したカラムの値を配列で取得
+    @tags = @item.tags.pluck(:id, :tag_name)              # pluck(カラム名)で指定したカラムの値を配列で取得
   end
 
   def edit
