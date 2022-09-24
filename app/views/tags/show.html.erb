@@ -1,0 +1,10 @@
+<main class="main">
+  <div class="inner">
+    <h2 class="page-heading">
+      <%= "#{@tag.tag_name}が付けられた投稿" %>
+    </h2>
+    <div class="card__wrapper">
+      <%= render partial: "items/item", collection: @items %>
+    </div>
+  </div>
+</main>
