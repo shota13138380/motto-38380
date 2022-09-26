@@ -1,7 +1,7 @@
 <main class="main">
   <div class="inner">
     <div class="item__wrapper">
-      <p class="item__hedding">
+      <p class="item__heading">
         <%= @item.name %>
       </p>
       <%= link_to "by #{@item.user.name}", user_path(@item.user.id), class: :item__user %>

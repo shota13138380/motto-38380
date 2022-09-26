@@ -213,7 +213,7 @@ a {
 .item__wrapper{
   min-height: calc(100vh - 161px);
 }
-.item__hedding{
+.item__heading{
   font-size: 24px;
   font-weight: bold;
   text-align: center;
@@ -400,8 +400,6 @@ a {
   border-radius: 5px;
   text-align:center;
   cursor:pointer;
-}
-.panel-group{
 }
 .panel{
   display:none;
