@@ -150,6 +150,10 @@ a {
   font-size: 12px;
 }
 
+.preview-image{
+  height: 80px;
+}
+
 /* エラーメッセージ */
 
 .error-alert {
