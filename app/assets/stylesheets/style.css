@@ -399,12 +399,11 @@ a {
 }
 .panel-group{
 }
-
 .panel{
   display:none;
 }
 .tab.is-active{
-  background:#F00;
+  background:#87CEFA;
   color:#FFF;
   transition: all 0.2s ease-out;
 }
