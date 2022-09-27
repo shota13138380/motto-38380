@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
 
   def create
     @item_form = ItemForm.new(item_form_params)
-    tag_list = params[:item_form][:tag_name].split(',')
+    tag_list = params[:item_form][:tag_name].split(',').uniq
     if @item_form.valid?
       @item_form.save(tag_list)
       redirect_to root_path
@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item_form = ItemForm.new(item_form_params)
-    tag_list = params[:item_form][:tag_name].split(',')
+    tag_list = params[:item_form][:tag_name].split(',').uniq
     if @item_form.valid?
       @item_form.update(item_form_params, @item, tag_list)
       redirect_to item_path(@item.id)
