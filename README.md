@@ -1,5 +1,4 @@
-# **Motto**
-
+![logo](https://user-images.githubusercontent.com/111602501/192486146-9412097a-1854-483e-9f6b-3d3d27329409.png)
 ## アプリケーション概要
 ### アプリケーション名
 Motto
