@@ -115,7 +115,7 @@ https://docs.google.com/spreadsheets/d/16LiXE-mEF6-J9wt-PE7YuuDJBTi-owIQ3sx1BWgZ
 
 ## データベース設計
 - ER図
-[![Image from Gyazo](https://i.gyazo.com/fc56f983d60ab27f81e3ff783d365237.png)](https://gyazo.com/fc56f983d60ab27f81e3ff783d365237)
+![image](https://user-images.githubusercontent.com/111602501/192487541-9207ecd0-72fb-4a0d-9ab8-42242d1288d9.png)
 
 ## 開発環境
 - HTML,CSS
