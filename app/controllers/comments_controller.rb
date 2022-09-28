@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     else
       @item = @comment.item
       @comments = @item.comments
+      @tags = @item.tags.pluck(:id, :tag_name)
       render 'items/show'
     end
   end

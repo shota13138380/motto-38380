@@ -194,6 +194,7 @@ a {
 }
 .card__img:hover {
   transform: scale(0.9);
+  opacity: 0.5;
 }
 .card__title {
   display: block;
@@ -265,39 +266,17 @@ a {
   background: #999;
 }
 
-.fav__btn{
-  display: block;
-  padding: 0.4em 1.6em;
-  font-size: 0.4em;
-  color: #999;
+.tag__btn{
+  font-size: 16px;
+  line-height: 16px;
   text-decoration: none;
   user-select: none;
-  border: 1px #999 solid;
-  border-radius: 3px;
-  transition: 0.4s ease;
+  transition: 0.2s ease;
   margin: 0 4px;
 }
-.fav__btn:hover{
-  color: #fff;
-  background: #999;
-}
-
-.unfav__btn{
-  display: block;
-  padding: 0.4em 1.6em;
-  font-size: 0.4em;
-  color: #fff;
-  background: #999;
-  text-decoration: none;
-  user-select: none;
-  border: 1px #999 solid;
-  border-radius: 3px;
-  transition: 0.4s ease;
-  margin: 0 4px;
-}
-.unfav__btn:hover{
+.tag__btn:hover{
   color: #999;
-  background: #fff;
+  text-decoration: underline;
 }
 
 .item__comments{
