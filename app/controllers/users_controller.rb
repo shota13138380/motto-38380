@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @items = Item.where(user_id: @user.id)
+    @items = Item.where(user_id: @user.id).order('created_at DESC')
 
     favorites = Favorite.where(user_id: @user.id).pluck(:item_id)
     @favorite_list = Item.find(favorites)
