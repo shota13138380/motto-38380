@@ -4,17 +4,28 @@
       <p class="item__heading">
         <%= @item.name %>
       </p>
-      <%= link_to "by #{@item.user.name}", user_path(@item.user.id), class: :item__user %>
+      <%= link_to user_path(@item.user.id), class: :item__user do %>
+        <i class="fa-solid fa-user"></i>
+        <%= @item.user.name %>
+      <% end %>
       <% if user_signed_in? %>
         <div class="item__manage">
           <% if current_user.id == @item.user_id %>
             <%= link_to "編集する", edit_item_path(@item.id), class: :item__btn %>
             <%= link_to "削除する", item_path(@item.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: :item__btn %>
+            <div class="counter" %>
+              <i class="fa-solid fa-star"></i>
+              <%= @item.favorites.length %>
+            </div>
           <% else %>
             <%if !Favorite.exists?(user: current_user, item_id: @item.id) %>
-              <%= link_to "いいね！", item_favorites_path(@item.id), method: :post, class: :fav__btn %>
+              <%= link_to item_favorites_path(@item.id), method: :post do %>
+                <i class="fa-regular fa-star"></i>
+              <% end %>
             <% else %>
-              <%= link_to "いいね！", item_favorite_path(@item), method: :delete, class: :unfav__btn %>
+              <%= link_to item_favorite_path(@item), method: :delete do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
             <% end %>
             <%= @item.favorites.length %>
           <% end %>
@@ -22,7 +33,8 @@
       <% end %>
       <div class="item__manage">
         <% @tags.each do |tag| %>
-          <%= link_to tag[1] , tag_path(tag[0]), class: :item__btn %>
+          <i class="fa-solid fa-tag"></i>
+          <%= link_to tag[1] , tag_path(tag[0]), class: :tag__btn %>
         <% end%>
       </div>
       <div class="item__image">
@@ -57,7 +69,10 @@
           <% @comments.each do |comment| %>
             <li class="comments_list">
               <%= comment.text %>
-              <%= link_to comment.user.name, user_path(comment.user.id), class: :comment_user %>
+              <%= link_to user_path(comment.user.id), class: :comment_user do %>
+                <i class="fa-solid fa-user"></i>
+                <%= comment.user.name %>
+              <% end %>
             </li>
           <% end %>
         </ul>
