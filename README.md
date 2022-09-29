@@ -61,14 +61,19 @@ https://motto-38380.herokuapp.com/
 
 **■ 新規登録** <br>
 - ヘッダーのボタンから新規登録ページへ遷移します。  
-- フォームの項目を埋め`新規登録`ボタンを押すことで登録できます。  
+- フォームの項目を埋め`新規登録`ボタンを押すことで登録できます。
+![signup](https://user-images.githubusercontent.com/111602501/193008591-159922b2-48ed-4835-8247-ffe29f991773.png)
+
 
 **■ ログイン** <br>
 - ヘッダーのボタンからログインページへ遷移します。
 - 登録したemailとpasswordを入力してログインできます。
+![login](https://user-images.githubusercontent.com/111602501/193008624-419acbc2-09d7-41c6-bf8e-c482795d7e24.png)
+
 
 **■ ログアウト** <br>
 - ヘッダーのボタンからログアウトできます。
+![logout](https://user-images.githubusercontent.com/111602501/193007625-f4282138-7c6d-42f4-bec0-9b865477781a.png)
 
 **■ 新規投稿** <br>
 - ヘッダーのボタンから新規投稿ページへ遷移します。  
@@ -76,36 +81,48 @@ https://motto-38380.herokuapp.com/
 - 画像とタグは任意ですので空欄でも登録できます。
 - タグを複数付ける際はカンマ(,)で区切ってください。
 - 非公開を選択すると自身以外には表示されません。
+![newitem](https://user-images.githubusercontent.com/111602501/193012262-fd8702d9-44a6-4a5d-9b89-8e4889e7e10e.gif)
 
 **■ 投稿詳細** <br>
 - 投稿の画像もしくはタイトルを押すことで詳細ページへ遷移できます。
+![show](https://user-images.githubusercontent.com/111602501/193020027-8ce01473-2aee-4cc9-a930-890face3cbe6.png)
 
 **■ 投稿編集** <br>
 - 詳細ページに表示されている`編集する`ボタンから編集ページへ遷移できます。
 - 変更したい内容を入力し、`投稿する`ボタンを押すことで更新されます。
+![itemedit](https://user-images.githubusercontent.com/111602501/193014513-3c827612-5bc5-4c24-8d33-f86f293fbad5.png)
 
 **■ 投稿削除** <br>
 - 詳細ページに表示されている`削除する`ボタンを押します。
 - 確認のポップアップが表示されるので`OK`を押すと削除できます。
+![itemdelete](https://user-images.githubusercontent.com/111602501/193014500-b17e8c19-0da9-42ce-b558-d2ff8daaaf96.png)
+![itemdeletepopup](https://user-images.githubusercontent.com/111602501/193015582-aa7bb674-5f03-45c1-b02f-101f530b81f0.png)
 
 **■ コメント** <br>
 - 詳細ページのコメントフォームからコメントを投稿できます。
+![comment1](https://user-images.githubusercontent.com/111602501/193017785-d7d7c44b-7d6a-4c22-b902-7714022686f0.png)
+![comment2](https://user-images.githubusercontent.com/111602501/193019650-f7e2ed76-a3a7-4725-be87-052c530ed2f6.png)
 
 **■ お気に入り** <br>
-- 詳細ページの`いいね！`ボタンでお気に入りの登録・解除ができます。
+- 詳細ページの`☆`ボタンでお気に入りの登録・解除ができます。
+![fav](https://user-images.githubusercontent.com/111602501/193018981-385c7c19-6d49-4b15-ab87-4c0071154238.gif)
 
 **■ ユーザーページ** <br>
 - 各所にあるユーザー名は全てユーザーページへのリンクとなっています。
 - そのユーザーの情報と投稿一覧・お気に入り一覧が表示されます。
 - 投稿一覧とお気に入り一覧はタブで切り替えることができます。
+![userpage](https://user-images.githubusercontent.com/111602501/193012106-49d22694-1b9e-4cde-90df-07b90dfdfa27.gif)
 
 **■ ユーザー編集** <br>
 - ユーザーページに表示されている`編集する`ボタンから編集ページへ遷移できます。
 - 変更したい内容を入力し、`更新`ボタンを押すことで更新されます。
+![useredit](https://user-images.githubusercontent.com/111602501/193016765-08338800-ce48-430c-99b5-c411a6bfc7ca.png)
 
 **■ 退会** <br>
 - ユーザーページに表示されている`退会する`ボタンを押します。
 - 確認のポップアップが表示されるので`OK`を押すと退会できます。
+![userdelete](https://user-images.githubusercontent.com/111602501/193017243-6116eb71-a672-4e55-b21b-2b678b1893f3.png)
+![userdeletepopup](https://user-images.githubusercontent.com/111602501/193015745-5fe23e05-0524-43b6-bcf7-313623bdcdbe.png)
 
 ## 要件定義
 https://docs.google.com/spreadsheets/d/16LiXE-mEF6-J9wt-PE7YuuDJBTi-owIQ3sx1BWgZ4IQ/edit#gid=982722306
