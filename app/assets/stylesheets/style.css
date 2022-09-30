@@ -244,6 +244,9 @@ a {
   font-size: 20px;
   font-weight: bold;
 }
+.detail__message{
+  white-space: pre-wrap;
+}
 .item__manage{
   display: flex;
   justify-content: center;
