@@ -5,8 +5,8 @@
         <%= "#{@user.name}さんの情報" %>
       </h2>
       <div class="user__manage">
-        <%= link_to follows_user_path(@user), class: :follow_list do %>フォロー<%= @following_users.count %><% end %>&nbsp;&nbsp;
-        <%= link_to followers_user_path(@user), class: :follow_list do %>フォロワー<%= @follower_users.count %><% end %>
+        <%= link_to follows_user_path(@user), class: :follow_list do %><%= @following_users.count %> フォロー<% end %>&nbsp;/&nbsp;
+        <%= link_to followers_user_path(@user), class: :follow_list do %><%= @follower_users.count %> フォロワー<% end %>
       </div>
       <% if user_signed_in? %>
         <div class="user__manage">
