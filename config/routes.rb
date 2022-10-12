@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :users, only: [:show, :edit, :update, :destroy] do
     get :favorites, on: :collection
+    member do
+      get :followees, :followers
+    end
+    resource :follows, only: [:create, :destroy]
   end
   resources :items do
     resources :comments,  only: [:create]
