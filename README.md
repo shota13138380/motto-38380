@@ -170,6 +170,9 @@ https://docs.google.com/spreadsheets/d/16LiXE-mEF6-J9wt-PE7YuuDJBTi-owIQ3sx1BWgZ
 - has_many :items
 - has_many :comments
 - has_many :favorites
+- has_many :follower, class_name: "Follows"
+- has_many :followed, class_name: "Follows"
+
 
 ## items テーブル
 
@@ -236,3 +239,15 @@ https://docs.google.com/spreadsheets/d/16LiXE-mEF6-J9wt-PE7YuuDJBTi-owIQ3sx1BWgZ
 
 - belongs_to :user
 - belongs_to :item
+
+## follows テーブル
+
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| follower | references | null: false, foreign_key: true |
+| followee | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :follower, class_name: "User"
+- belongs_to :followee, class_name: "User"
