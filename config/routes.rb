@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy] do
     get :favorites, on: :collection
     member do
-      get :followees, :followers
+      get :follows, :followers
     end
     resource :follows, only: [:create, :destroy]
   end

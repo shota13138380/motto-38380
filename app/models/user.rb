@@ -15,19 +15,19 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }, on: :create
   validates :name,     presence: true
-end
 
-# ユーザーをフォローする
-def follow(user_id)
-  follower.create(followee_id: user_id)
-end
+  # ユーザーをフォローする
+  def follow(user_id)
+    follower.create(followee_id: user_id)
+  end
 
-# ユーザーのフォローを外す
-def unfollow(user_id)
-  follower.find_by(followee_id: user_id).destroy
-end
+  # ユーザーのフォローを外す
+  def unfollow(user_id)
+    follower.find_by(followee_id: user_id).destroy
+  end
 
-# フォローしていればtrueを返す
-def following?(user)
-  following_user.include?(user)
+  # フォローしていればtrueを返す
+  def following?(user)
+    following_user.include?(user)
+  end
 end
