@@ -18,15 +18,7 @@
               <%= @item.favorites.length %>
             </div>
           <% else %>
-            <%if !Favorite.exists?(user: current_user, item_id: @item.id) %>
-              <%= link_to item_favorites_path(@item.id), method: :post do %>
-                <i class="fa-regular fa-star"></i>
-              <% end %>
-            <% else %>
-              <%= link_to item_favorite_path(@item), method: :delete do %>
-                <i class="fa-solid fa-star"></i>
-              <% end %>
-            <% end %>
+            <%= render partial: "favorite", item: @item %>
             <%= @item.favorites.length %>
           <% end %>
         </div>
