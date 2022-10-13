@@ -36,6 +36,7 @@ https://motto-38380.herokuapp.com/
 	- 新規登録機能
 	- ログイン機能
 	- マイページ
+	- フォロー機能
 - 投稿機能
   - タグ付け機能（複数可）
   - 投稿の公開範囲設定機能
@@ -95,7 +96,7 @@ https://motto-38380.herokuapp.com/
 **■ 投稿削除** <br>
 - 詳細ページに表示されている`削除する`ボタンを押します。
 - 確認のポップアップが表示されるので`OK`を押すと削除できます。
-![itemdelete](https://user-images.githubusercontent.com/111602501/193014500-b17e8c19-0da9-42ce-b558-d2ff8daaaf96.png)
+![itemdelete](https://user-images.githubusercontent.com/111602501/193014500-b17e8c19-0da9-42ce-b558-d2ff8daaaf96.png)  
 ![itemdeletepopup](https://user-images.githubusercontent.com/111602501/193015582-aa7bb674-5f03-45c1-b02f-101f530b81f0.png)
 
 **■ コメント** <br>
@@ -115,19 +116,24 @@ https://motto-38380.herokuapp.com/
 
 **■ ユーザー編集** <br>
 - ユーザーページに表示されている`編集する`ボタンから編集ページへ遷移できます。
-- 変更したい内容を入力し、`更新`ボタンを押すことで更新されます。
+- 変更したい内容を入力し、`更新`ボタンを押すことで更新されます。  
 ![useredit](https://user-images.githubusercontent.com/111602501/193016765-08338800-ce48-430c-99b5-c411a6bfc7ca.png)
+
+**■ フォロー機能** <br>
+- 他者のユーザーページに表示されている`フォローする`/`フォロー解除`ボタンからフォローの追加/解除が行えます。
+![follow](https://user-images.githubusercontent.com/111602501/195545940-11b1be76-b918-47aa-8aa2-3b9414e69588.gif)
+- フォロー、フォロワーの人数表示のテキストをクリックすると一覧表示ページへ遷移します。
+![follow_list](https://user-images.githubusercontent.com/111602501/195545929-05730332-dce1-4c3d-a05d-3567586f2cc2.gif)
 
 **■ 退会** <br>
 - ユーザーページに表示されている`退会する`ボタンを押します。
-- 確認のポップアップが表示されるので`OK`を押すと退会できます。
-![userdelete](https://user-images.githubusercontent.com/111602501/193017243-6116eb71-a672-4e55-b21b-2b678b1893f3.png)
+- 確認のポップアップが表示されるので`OK`を押すと退会できます。  
+![userdelete](https://user-images.githubusercontent.com/111602501/193017243-6116eb71-a672-4e55-b21b-2b678b1893f3.png)  
 ![userdeletepopup](https://user-images.githubusercontent.com/111602501/193015745-5fe23e05-0524-43b6-bcf7-313623bdcdbe.png)
 
 ## 要件定義
 https://docs.google.com/spreadsheets/d/16LiXE-mEF6-J9wt-PE7YuuDJBTi-owIQ3sx1BWgZ4IQ/edit#gid=982722306
 ## 実装予定の機能
-- フォロー機能
 - 検索機能
 
 ## データベース設計
