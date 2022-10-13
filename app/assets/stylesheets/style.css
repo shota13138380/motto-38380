@@ -378,6 +378,27 @@ a {
   background: #999;
 }
 
+/* フォロー一覧 */
+.follow__wrapper{
+  width: 50vw;
+  margin: 0 auto;
+}
+.follow-card{
+  height: 60px;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #87CEFA;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.follow-card__left{
+  font-size: large;
+}
+.follow-card__right{
+  font-size: small;
+}
 /* タブ */
 
 .tab-group{
@@ -460,5 +481,8 @@ a {
   }
   .table{
     width: 100%;
+  }
+  .follow__wrapper{
+    width: 70vw;
   }
 }
