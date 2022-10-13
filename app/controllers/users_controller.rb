@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 
     favorites = Favorite.where(user_id: @user.id).pluck(:item_id)
     @favorite_list = Item.find(favorites)
+
+    @following_users = @user.following_user
+    @follower_users = @user.follower_user
   end
 
   def edit
@@ -27,6 +30,16 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.destroy
     redirect_to root_path
+  end
+
+# フォロー機能（一覧）
+  def follows
+    @user = User.find(params[:id])
+    @users = @user.following_user
+  end
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.follower_user
   end
 
   private

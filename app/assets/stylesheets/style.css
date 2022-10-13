@@ -307,6 +307,13 @@ a {
 .user__wrapper{
   min-height: calc(100vh - 161px);
 }
+.page-heading_A{
+  font-size: 30px;
+}
+.follow_list:hover{
+  color: #999;
+  text-decoration: underline;
+}
 .table{
   border-collapse: collapse;
   margin-bottom: 32px;
@@ -369,6 +376,36 @@ a {
 .user__btn:hover{
   color: #fff;
   background: #999;
+}
+
+/* フォロー一覧 */
+.follow__wrapper{
+  width: 50vw;
+  margin: 0 auto;
+}
+.follow-card{
+  height: 60px;
+  width: 100%;
+  border: 1px solid #87CEFA;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 4px gray;
+}
+.follow-card a{
+  padding: 15px;
+  display: block;
+  font-size: large;
+  line-height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.follow-card__right{
+  font-size: small;
+  line-height: 30px;
+}
+.follow-card:hover{
+  box-shadow: none;
+  transition: .3s;
 }
 
 /* タブ */
@@ -453,5 +490,8 @@ a {
   }
   .table{
     width: 100%;
+  }
+  .follow__wrapper{
+    width: 70vw;
   }
 }

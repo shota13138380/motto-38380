@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="inner">
+    <div class="follow__wrapper">
+      <h2 class="page-heading">
+        <%= "#{@user.name}さんのフォロー" %>
+      </h2>
+      <% @users.each do |user| %>
+        <div class="follow-card">
+          <%= link_to user_path(user) do %>
+            <div class="follow-card__left">
+              <i class="fa-solid fa-user"></i><%= user.name %>
+            </div>
+            <div class="follow-card__right">
+              <%= user.items.count %>件の投稿
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

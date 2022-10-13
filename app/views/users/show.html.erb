@@ -1,16 +1,24 @@
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
-      <h2 class="page-heading">
+      <h2 class="page-heading_A">
         <%= "#{@user.name}さんの情報" %>
       </h2>
+      <div class="user__manage">
+        <%= link_to follows_user_path(@user), class: :follow_list do %><%= @following_users.count %> フォロー<% end %>&nbsp;/&nbsp;
+        <%= link_to followers_user_path(@user), class: :follow_list do %><%= @follower_users.count %> フォロワー<% end %>
+      </div>
       <% if user_signed_in? %>
         <div class="user__manage">
           <% if current_user.id == @user.id %>
             <%= link_to "編集する", edit_user_path(@user.id), class: :user__btn %>
             <%= link_to "退会する", user_path(@user.id), method: :delete, data: {confirm: "本当に退会しますか？"}, class: :user__btn %>
           <% else %>
-            <%= link_to "フォロー", root_path, class: :user__btn %>
+            <% if current_user.following?(@user) %>
+              <%= link_to 'フォロー外す', user_follows_path(@user.id), method: :delete, class: :user__btn %>
+            <% else %>
+              <%= link_to 'フォローする', user_follows_path(@user.id), method: :POST, class: :user__btn %>
+              <% end %>
           <% end %>
         </div>
       <% end %>
